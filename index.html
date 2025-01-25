@@ -1,12 +1,105 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog pessoal</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Blog de artigos sobre programação">
+    <title>Meu Blog - Artigos sobre Programação</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #2c2c2c;
+        }
+        header {
+            background-color: #8ab6d6;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        nav {
+            margin: 1rem auto;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .article-preview {
+            background: white;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .article-preview h2 {
+            margin-top: 0;
+        }
+        .article-preview p {
+            color: #555;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #8ab6d6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #555;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mudanças em breve...</h1>
+    <header>
+        <h1>Meu Blog</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Categorias</a>
+            <a href="#">Sobre</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="article-preview">
+            <h2>Título do Artigo 1</h2>
+            <p>Resumo breve do artigo. Este é o início do conteúdo que atrairá o leitor para clicar e ler mais.</p>
+            <a href="#" class="read-more">Leia mais...</a>
+        </div>
+
+        <div class="article-preview">
+            <h2>Título do Artigo 2</h2>
+            <p>Outro resumo interessante para capturar a atenção do leitor e incentivá-lo a explorar o conteúdo completo.</p>
+            <a href="#" class="read-more">Leia mais...</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Meu Blog. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
