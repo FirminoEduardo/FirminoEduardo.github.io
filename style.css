@@ -15,9 +15,22 @@ header {
     margin-bottom: 0.5em;
 }
 
-h1, h2, h3 {
+.info {
+    text-align: center;
+}
+
+h1, h2 {
     color: #f4f4f4;
     background-color: #001d3d;
+    text-align: center;
+    margin-bottom: 1em 0;
+}
+
+h3 {
+    color: #f4f4f4;
+    background-color: #001d3d;
+    text-align: justify;
+    margin-bottom: 1em 0;
 }
 
 a {
@@ -28,6 +41,8 @@ p {
     line-height: 1.6;
     color: #f4f4f4;
     background-color: #001d3d;
+    text-align: justify;
+    margin-bottom: 1em 0;
 }
 
 .container {
