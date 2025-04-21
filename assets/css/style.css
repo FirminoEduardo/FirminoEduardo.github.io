@@ -86,9 +86,16 @@ footer {
   nav a {
     color: #aaa;
   }
-
   nav a:hover {
     color: #fff;
+  }
+  /* Adicione isto para os links dos títulos dos posts */
+  .post h2 a {
+    color: #fff;
+  }
+  .post h2 a:hover {
+    text-decoration: underline;
+    color: #ccc;
   }
 }
 
