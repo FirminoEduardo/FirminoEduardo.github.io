@@ -22,8 +22,6 @@ const posts = [
   },
 ];
 
-posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
 const container = document.getElementById("posts-container");
 
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -41,16 +39,6 @@ posts.forEach((post) => {
   article.innerHTML = `
     <h2><a href="${post.url}">${post.title}</a></h2>
     <p><small>${date}</small></p>
-    <p>${post.content}</p>
-  `;
-  container.appendChild(article);
-});
-
-posts.forEach((post) => {
-  const article = document.createElement("article");
-  article.classList.add("post");
-  article.innerHTML = `
-    <h2><a href="${post.url}">${post.title}</a></h2>
     <p>${post.content}</p>
   `;
   container.appendChild(article);
