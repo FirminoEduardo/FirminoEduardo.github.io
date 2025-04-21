@@ -53,3 +53,12 @@ footer {
   font-size: 0.9rem;
   color: #999;
 }
+
+.post h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post h2 a:hover {
+  text-decoration: underline;
+}
