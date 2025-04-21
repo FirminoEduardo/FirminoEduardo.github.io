@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artigo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Eduardo Firmino</h1>
+    <p class="subtitle">Artigos sobre Programação e Engenharia de Software</p>
+  </header>
+
+  <main id="posts-container"></main>
+
+  <footer>
+    <p>&copy; 2025 - Eduardo.dev</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file");
+
+    if (file) {
+      fetch(`posts/${file}`)
+        .then(response => {
+          if (!response.ok) {
+            window.location.href = "404.html";
+          }
+          return response.text();
+        })
+        .then(md => {
+          document.getElementById("posts-container").innerHTML = marked.parse(md);
+        });
+    } else {
+      document.getElementById("posts-container").innerHTML = "<p>Post não encontrado.</p>";
+    }
+  </script>
+</body>
+</html>

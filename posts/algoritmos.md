@@ -1,0 +1,3 @@
+# Por que entender algoritmos é essencial?
+
+Mesmo em linguagens de alto nível, o conhecimento de algoritmos permite criar soluções mais eficientes e elegantes...

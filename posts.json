@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Por que entender algoritmos é essencial?",
+    "description": "Mesmo em linguagens de alto nível, o conhecimento de algoritmos permite criar soluções mais eficientes e elegantes...",
+    "file": "algoritmos.md"
+  },
+  {
+    "title": "Boas práticas no Git para equipes ágeis",
+    "description": "Trabalhar com Git de forma colaborativa exige convenções: nomes de branch claros, commits atômicos e pull requests bem descritos.",
+    "file": "git-boas-praticas.md"
+  },
+  {
+    "title": "O que é Clean Architecture?",
+    "description": "Clean Architecture busca separar responsabilidades, promovendo código mais testável e fácil de manter ao longo do tempo.",
+    "file": "clean-architecture.md"
+  }
+]
