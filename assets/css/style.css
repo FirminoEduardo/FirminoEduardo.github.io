@@ -1,117 +1,519 @@
- /* Reset básico */
+/* =========================================
+   1. Reset & Variáveis Globais (Estilo Level 1-1)
+   ========================================= */
+:root {
+    --bg-sky: #5C94FC; /* Azul clássico do céu de 8-bit */
+    --text-light: #FFFFFF;
+    --text-dark: #000000;
+    --coin-gold: #FFD700;
+    --dialog-bg: rgba(0, 0, 0, 0.8);
+    
+    --font-retro: 'Press Start 2P', cursive;
+    --font-text: 'Inter', sans-serif;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+    background-color: var(--bg-sky);
+    color: var(--text-light);
+    font-family: var(--font-text);
+    line-height: 1.6;
+    overflow-x: hidden; /* Impede a tela de "arrastar" para os lados */
 }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* =========================================
+   2. Player 1: Hero Section
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #222;
+.press-start {
+    font-family: var(--font-retro);
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    animation: blink 1s step-end infinite;
 }
 
-.subtitle {
-  color: #666;
-  font-size: 1.1rem;
+.hero h1 {
+    font-family: var(--font-retro);
+    font-size: 2rem;
+    color: var(--coin-gold);
+    text-shadow: 4px 4px 0 var(--text-dark); /* Sombra dura estilo pixel art */
+    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
-.post {
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+.hero h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
-.post h2 {
-  font-size: 1.5rem;
-  color: #111;
-  margin-bottom: 10px;
+.location {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
 }
 
-.post p {
-  color: #444;
+/* Caixa de texto estilo RPG/Jogos antigos */
+.dialog-box {
+    background-color: var(--dialog-bg);
+    padding: 1.5rem;
+    border: 4px solid var(--text-light);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: var(--font-retro);
+    font-size: 0.7rem; /* Fonte retrô precisa ser menor para ficar legível */
+    line-height: 1.8;
+    text-transform: uppercase;
 }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #999;
+/* =========================================
+   3. Animações
+   ========================================= */
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
-.post h2 a {
-  color: inherit;
-  text-decoration: none;
+/* =========================================
+   4. Inventário (Habilidades Técnicas)
+   ========================================= */
+.inventory-section {
+    padding: 5rem 2rem;
+    /* Adicionando um fundo levemente mais escuro para contrastar com o céu */
+    background-color: rgba(0, 0, 0, 0.1); 
+    text-align: center;
 }
 
-.post h2 a:hover {
-  text-decoration: underline;
+.section-title {
+    font-family: var(--font-retro);
+    font-size: 1.5rem;
+    color: var(--text-light);
+    text-shadow: 3px 3px 0 var(--text-dark);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #eee;
-  }
-  h1, h2 {
-    color: #fafafa;
-  }
-  .subtitle {
-    color: #aaa;
-  }
-  .post {
-    border-bottom: 1px solid #333;
-  }
-  .post p {
-    color: #ccc;
-  }
-  footer {
-    color: #666;
-  }
-  nav a {
-    color: #aaa;
-  }
-  nav a:hover {
-    color: #fff;
-  }
-  /* Adicione isto para os links dos títulos dos posts */
-  .post h2 a {
-    color: #fff;
-  }
-  .post h2 a:hover {
-    text-decoration: underline;
-    color: #ccc;
-  }
+.inventory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-nav {
-  text-align: center;
-  margin-bottom: 30px;
+/* O "Slot" de cada categoria de item */
+.inventory-slot {
+    background-color: var(--dialog-bg);
+    border: 4px solid var(--coin-gold);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-nav a {
-  text-decoration: none;
-  color: #555;
-  margin: 0 10px;
-  font-size: 1rem;
+/* O efeito do pulinho estilo Mario ao passar o mouse */
+.inventory-slot:hover {
+    transform: translateY(-10px);
+    border-color: var(--text-light);
 }
 
-nav a:hover {
-  color: #111;
-  text-decoration: underline;
+.inventory-slot h3 {
+    font-family: var(--font-retro);
+    font-size: 0.8rem;
+    color: var(--coin-gold);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 2px dashed var(--coin-gold);
+    padding-bottom: 0.5rem;
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* A classe para os emojis (ou futuros ícones) */
+.sprite {
+    font-size: 1.5rem; 
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.5)); /* Sombrinha no ícone */
+}
+
+/* =========================================
+   5. World 1 (Experiência Profissional)
+   ========================================= */
+.world-section {
+    padding: 5rem 2rem;
+    background-color: var(--bg-sky);
+    text-align: center;
+}
+
+.level-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* O "Caminho" do mapa passando no fundo */
+.level-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 8px;
+    background-color: var(--text-dark); 
+    transform: translateX(-50%);
+    border: 2px dashed var(--text-light);
+    z-index: 0;
+}
+
+/* Caixa de cada fase profissional */
+.level-card {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    border: 4px solid var(--text-dark);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.4); /* Sombra pixel art dura */
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.level-card:hover {
+    transform: scale(1.02);
+}
+
+.level-header {
+    border-bottom: 4px solid var(--text-dark);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.level-title {
+    font-family: var(--font-retro);
+    font-size: 1.1rem;
+    color: #E52521; /* Vermelho vibrante estilo chapéu do Mario */
+    text-transform: uppercase;
+}
+
+.level-company {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.level-date {
+    font-size: 0.9rem;
+    color: #555555;
+    font-weight: bold;
+}
+
+.level-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.level-content strong {
+    color: #E52521;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .level-container::before {
+        left: 20px; /* Move a linha do mapa para o canto em dispositivos móveis */
+    }
+}
+
+/* =========================================
+   6. World 2 (Projetos / Boss Battles)
+   ========================================= */
+.boss-section {
+    padding: 5rem 2rem;
+    background-color: #202020; /* Fundo escuro estilo fase de castelo */
+    border-top: 8px solid #404040; /* Chão de pedra do castelo */
+    border-bottom: 8px solid #404040;
+    text-align: center;
+}
+
+.text-light {
+    color: var(--text-light) !important;
+}
+
+.boss-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* O cartão de cada Boss */
+.boss-card {
+    background-color: #380000; /* Fundo vermelho bem escuro */
+    color: var(--text-light);
+    border: 4px solid #FF5555; /* Borda vermelha brilhante (lava) */
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 6px 6px 0px #000000;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boss-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 10px 10px 0px #000000; /* Sensação de levantar a carta */
+}
+
+.boss-header {
+    border-bottom: 2px dashed #FF5555;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.boss-title {
+    font-family: var(--font-retro);
+    font-size: 0.9rem;
+    color: #FFD700; /* Ouro, contrastando com o vermelho */
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.boss-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boss-content p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.boss-content strong {
+    color: #FF5555;
+}
+
+/* =========================================
+   7. Save Point (Educação)
+   ========================================= */
+.save-point-section {
+    padding: 5rem 2rem;
+    background-color: #28a745; /* Verde clássico de área segura/cano */
+    text-align: center;
+}
+
+.save-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.save-card {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    border: 4px solid var(--text-dark);
+    border-radius: 8px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.save-title {
+    font-family: var(--font-retro);
+    font-size: 0.9rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed #28a745;
+    padding-bottom: 0.5rem;
+}
+
+.institution {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.degree {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.period {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.badge-list {
+    list-style: none;
+}
+
+.badge-list li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================================
+   8. Rodapé (Game Over / Continue)
+   ========================================= */
+.game-over {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+    border-top: 4px solid var(--text-light);
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+/* Botões no estilo de fliperama */
+.btn-retro {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--text-light);
+    font-family: var(--font-retro);
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--text-light);
+    transition: all 0.2s ease;
+}
+
+.btn-retro:hover {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    transform: scale(1.1);
+}
+
+.credits {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Classes controladas pelo JavaScript para a animação de Scroll */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   9. Elementos de Interface (Globo e Troféu)
+   ========================================= */
+
+/* Botão de Idioma (Bandeiras) */
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s ease;
+}
+
+#flagIcon {
+    border: 3px solid var(--text-light); /* Borda branca do menu */
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.8); /* Sombra 8-bit */
+    border-radius: 2px;
+    display: block;
+}
+
+.lang-switch:hover {
+    transform: scale(1.1) translateY(-4px); /* Pulinho ao passar o mouse */
+}
+
+/* Notificação do Troféu de Platina */
+#achievementToast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #111;
+    color: #FFD700;
+    font-family: var(--font-retro);
+    font-size: 0.7rem;
+    padding: 1.5rem;
+    border: 3px solid #FFD700;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+    z-index: 999;
+    
+    /* A Mágica da correção: empurra 150% do próprio tamanho para a direita, saindo da tela */
+    transform: translateX(150%); 
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease; /* Animação com um "quique" no final */
+}
+
+#achievementToast.show-toast {
+    transform: translateX(0); /* Volta para a posição original */
+    opacity: 1;
+}
+
+#achievementToast.show-toast {
+    right: 20px; /* Desliza para dentro da tela */
+}
+
+/* Classes para animação de scroll (Descoberta do Mapa) */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show-element {
+    opacity: 1;
+    transform: translateY(0);
 }

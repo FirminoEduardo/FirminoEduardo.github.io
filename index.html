@@ -1,30 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduardo Firmino</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Firmino - Software Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-  <h1>Eduardo Firmino</h1>
-  <p class="subtitle">Artigos sobre Programação e Engenharia de Software</p>
-  </header>
 
-<nav>
-  <a href="index.html">Início</a> |
-  <a href="sobre.html">Sobre</a> |
-  <a href="contato.html">Contato</a>
-</nav>
-  <main id="posts-container">
-  </main>
+    <div class="lang-switch" id="langToggle" title="Mudar Idioma">
+        <svg id="flagIcon" width="48" height="36" viewBox="0 0 16 12" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect width="16" height="12" fill="#009B3A" />
+            <polygon points="8,1 14,6 8,11 2,6" fill="#FEDF00" />
+            <rect x="6" y="4" width="4" height="4" fill="#002776" /> 
+        </svg>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 - Eduardo.dev</p>
-  </footer>
+    <div id="achievementToast" class="hidden-toast">
+        🏆 PLATINUM TROPHY UNLOCKED: Code Explorer!
+    </div>
 
-  <script src="script.js"></script>
+    <header class="hero">
+        <div class="player-info">
+            <p class="press-start" data-pt="PRESS START" data-en="PRESS START">PRESS START</p>
+            <h1 id="secretName">Eduardo Lima Firmino</h1>
+            <h2>Software Engineer | Java & Spring | Azure</h2>
+            <p class="location" data-pt="Base de Operações: Camaçari, BA" data-en="Base of Operations: Camaçari, BA">Base de Operações: Camaçari, BA</p>
+            
+            <div class="dialog-box">
+                <p data-pt="MISSÃO PRINCIPAL: Projetar e construir sistemas escaláveis e de alto desempenho. Foco em Arquitetura de Software, Clean Code e infraestruturas robustas." data-en="MAIN QUEST: Design and build scalable, high-performance systems. Focused on Software Architecture, Clean Code, and robust infrastructures.">MISSÃO PRINCIPAL: Projetar e construir sistemas escaláveis e de alto desempenho. Foco em Arquitetura de Software, Clean Code e infraestruturas robustas.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="inventory-section">
+        <h2 class="section-title" data-pt="Inventário de Power-Ups" data-en="Power-Ups Inventory">Inventário de Power-Ups</h2>
+        
+        <div class="inventory-grid">
+            <div class="inventory-slot">
+                <h3 data-pt="Linguagens" data-en="Languages">Linguagens</h3>
+                <ul class="skill-list">
+                    <li><span class="sprite">☕</span> Java</li>
+                    <li><span class="sprite">🐍</span> Python</li>
+                    <li><span class="sprite">💾</span> SQL</li>
+                    <li><span class="sprite">📜</span> JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="inventory-slot">
+                <h3 data-pt="Frameworks & Cloud" data-en="Frameworks & Cloud">Frameworks & Cloud</h3>
+                <ul class="skill-list">
+                    <li><span class="sprite">🍃</span> Spring Boot</li>
+                    <li><span class="sprite">☁️</span> Microsoft Azure</li>
+                    <li><span class="sprite">⚡</span> FastAPI</li>
+                    <li><span class="sprite">⚛️</span> React.js</li>
+                </ul>
+            </div>
+
+            <div class="inventory-slot">
+                <h3 data-pt="Arquitetura & Infra" data-en="Architecture & Infra">Arquitetura & Infra</h3>
+                <ul class="skill-list">
+                    <li><span class="sprite">🐳</span> Docker</li>
+                    <li><span class="sprite">🐘</span> PostgreSQL</li>
+                    <li><span class="sprite">🐙</span> GitHub</li>
+                    <li><span class="sprite">⚙️</span> Serverless</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="world-section">
+        <h2 class="section-title" data-pt="World 1: Experiência" data-en="World 1: Experience">World 1: Experiência</h2>
+        
+        <div class="level-container">
+            <div class="level-card">
+                <div class="level-header">
+                    <h3 class="level-title">Level 1-2: Test Analyst</h3>
+                    <span class="level-company">Naxtool Sistemas</span>
+                    <span class="level-date" data-pt="Jan 2026 - Presente" data-en="Jan 2026 - Present">Jan 2026 - Presente</span>
+                </div>
+                <div class="level-content">
+                    <p><strong data-pt="Missão Principal:" data-en="Main Quest:">Missão Principal:</strong> <span data-pt="Condução de testes de sistema e backend, com análise aprofundada de fluxos de dados e consistência de banco de dados para garantir operações confiáveis." data-en="Conducting system and backend testing, with in-depth analysis of data flows and database consistency to ensure reliable operations.">Condução de testes de sistema e backend, com análise aprofundada de fluxos de dados e consistência de banco de dados para garantir operações confiáveis.</span></p>
+                    <p><strong data-pt="Side Quests:" data-en="Side Quests:">Side Quests:</strong> <span data-pt="Execução de processos de migração de dados (ETL) de sistemas legados para o ERP e validações de integridade (Data Quality)." data-en="Execution of data migration processes (ETL) from legacy systems to the ERP and integrity validations (Data Quality).">Execução de processos de migração de dados (ETL) de sistemas legados para o ERP e validações de integridade (Data Quality).</span></p>
+                </div>
+            </div>
+
+            <div class="level-card">
+                <div class="level-header">
+                    <h3 class="level-title">Level 1-1: Tech Support</h3>
+                    <span class="level-company">Naxtool Sistemas</span>
+                    <span class="level-date" data-pt="Dez 2025 - Jan 2026" data-en="Dec 2025 - Jan 2026">Dez 2025 - Jan 2026</span>
+                </div>
+                <div class="level-content">
+                    <p><strong data-pt="Missão Principal:" data-en="Main Quest:">Missão Principal:</strong> <span data-pt="Diagnóstico e resolução de problemas técnicos complexos no sistema ERP, identificando inconsistências de dados na aplicação." data-en="Diagnosis and resolution of complex technical problems in the ERP system, identifying data inconsistencies in the application.">Diagnóstico e resolução de problemas técnicos complexos no sistema ERP, identificando inconsistências de dados na aplicação.</span></p>
+                    <p><strong data-pt="Side Quests:" data-en="Side Quests:">Side Quests:</strong> <span data-pt="Documentação de comportamentos técnicos do sistema e suporte ativo aos usuários e equipe de desenvolvimento." data-en="Documentation of technical system behaviors and active support for users and the development team.">Documentação de comportamentos técnicos do sistema e suporte ativo aos usuários e equipe de desenvolvimento.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-section">
+        <h2 class="section-title text-light" data-pt="World 2: Boss Battles (Projetos)" data-en="World 2: Boss Battles (Projects)">World 2: Boss Battles (Projetos)</h2>
+        
+        <div class="boss-container">
+            <div class="boss-card">
+                <div class="boss-header">
+                    <h3 class="boss-title">Boss 1: API RESTful (PostgreSQL & Docker)</h3>
+                    <span class="boss-name" data-pt="Software de Submissão de Ideias" data-en="Idea Submission Software">Software de Submissão de Ideias</span>
+                </div>
+                <div class="boss-content">
+                    <p><strong data-pt="Estratégia:" data-en="Strategy:">Estratégia:</strong> <span data-pt="Desenvolvimento de uma API RESTful robusta no backend para comunicação eficiente e gestão de regras de negócio." data-en="Development of a robust RESTful API in the backend for efficient communication and business rules management.">Desenvolvimento de uma API RESTful robusta no backend para comunicação eficiente e gestão de regras de negócio.</span></p>
+                    <p><strong data-pt="Armas Utilizadas:" data-en="Weapons Used:">Armas Utilizadas:</strong> <span data-pt="Infraestrutura totalmente containerizada utilizando Docker e persistência estruturada em PostgreSQL sob arquitetura cliente-servidor." data-en="Fully containerized infrastructure using Docker and structured persistence in PostgreSQL under client-server architecture.">Infraestrutura totalmente containerizada utilizando Docker e persistência estruturada em PostgreSQL sob arquitetura cliente-servidor.</span></p>
+                </div>
+            </div>
+
+            <div class="boss-card">
+                <div class="boss-header">
+                    <h3 class="boss-title">Boss 2: Arquitetura Assíncrona & Segurança</h3>
+                    <span class="boss-name">Concursa (Plataforma SaaS)</span>
+                </div>
+                <div class="boss-content">
+                    <p><strong data-pt="Estratégia:" data-en="Strategy:">Estratégia:</strong> <span data-pt="Desenvolvimento de plataforma de alertas com arquitetura orientada a processamento assíncrono utilizando Celery Beat e Redis." data-en="Development of an alert platform with architecture oriented to asynchronous processing using Celery Beat and Redis.">Desenvolvimento de plataforma de alertas com arquitetura orientada a processamento assíncrono utilizando Celery Beat e Redis.</span></p>
+                    <p><strong data-pt="Defesa Avançada:" data-en="Advanced Defense:">Defesa Avançada:</strong> <span data-pt="Foco extremo em segurança da informação através de autenticação JWT, criptografia com bcrypt, rate limiting e webhooks seguros." data-en="Extreme focus on information security through JWT authentication, bcrypt encryption, rate limiting, and secure webhooks.">Foco extremo em segurança da informação através de autenticação JWT, criptografia com bcrypt, rate limiting e webhooks seguros.</span></p>
+                </div>
+            </div>
+
+            <div class="boss-card">
+                <div class="boss-header">
+                    <h3 class="boss-title">Boss 3: Pipeline E2E & Serverless</h3>
+                    <span class="boss-name">MacroEcon Data Tracker</span>
+                </div>
+                <div class="boss-content">
+                    <p><strong data-pt="Estratégia:" data-en="Strategy:">Estratégia:</strong> <span data-pt="Arquitetura de nuvem utilizando o ecossistema completo Microsoft Azure para construção de pipeline ponta a ponta." data-en="Cloud architecture using the complete Microsoft Azure ecosystem for building an end-to-end pipeline.">Arquitetura de nuvem utilizando o ecossistema completo Microsoft Azure para construção de pipeline ponta a ponta.</span></p>
+                    <p><strong data-pt="Armas Utilizadas:" data-en="Weapons Used:">Armas Utilizadas:</strong> <span data-pt="Azure Data Lake Gen2 (Arquitetura Medallion), orquestração via Azure Functions (Serverless) e Azure Synapse Analytics." data-en="Azure Data Lake Gen2 (Medallion Architecture), orchestration via Azure Functions (Serverless), and Azure Synapse Analytics.">Azure Data Lake Gen2 (Arquitetura Medallion), orquestração via Azure Functions (Serverless) e Azure Synapse Analytics.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="save-point-section">
+        <h2 class="section-title" data-pt="Save Point: Academia & Treinamento" data-en="Save Point: Academy & Training">Save Point: Academia & Treinamento</h2>
+        
+        <div class="save-container">
+            <div class="save-card">
+                <h3 class="save-title" data-pt="Base de Treinamento (Graduação)" data-en="Training Base (Bachelor's Degree)">Base de Treinamento (Graduação)</h3>
+                <p class="institution" data-pt="Universidade Católica do Salvador (UCSAL)" data-en="Catholic University of Salvador (UCSAL)">Universidade Católica do Salvador (UCSAL)</p>
+                <p class="degree" data-pt="Bacharelado em Engenharia de Software" data-en="Bachelor's in Software Engineering">Bacharelado em Engenharia de Software</p>
+                <p class="period" data-pt="Agosto de 2022 - Junho de 2026" data-en="August 2022 - June 2026">Agosto de 2022 - Junho de 2026</p>
+            </div>
+
+            <div class="save-card">
+                <h3 class="save-title" data-pt="Medalhas de Conquista (Certificações)" data-en="Achievement Medals (Certifications)">Medalhas de Conquista (Certificações)</h3>
+                <ul class="badge-list">
+                    <li>🎖️ <span data-pt="Spring Boot - Desenvolvimento de APIs e Microsserviços" data-en="Spring Boot - API and Microservices Development">Spring Boot - Desenvolvimento de APIs e Microsserviços</span></li>
+                    <li>🎖️ <span data-pt="Git e GitHub Compartilhando e colaborando em projetos técnicos" data-en="Git and GitHub: Sharing and collaborating on technical projects">Git e GitHub Compartilhando e colaborando em projetos técnicos</span></li>
+                    <li>🎖️ <span data-pt="Lógica de Programação e Algoritmos Avançados" data-en="Programming Logic and Advanced Algorithms">Lógica de Programação e Algoritmos Avançados</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="game-over">
+        <h2 class="press-start">CONTINUE?</h2>
+        <div class="contact-links">
+            <a href="mailto:eduf1304@gmail.com" class="btn-retro">EMAIL</a>
+            <a href="https://linkedin.com/in/eduardo-firmino-9353102b6" target="_blank" class="btn-retro">LINKEDIN</a>
+            <a href="https://github.com/Firmino Eduardo" target="_blank" class="btn-retro">GITHUB</a>
+        </div>
+        <p class="credits" data-pt="© 2026 Eduardo Lima Firmino. Desenvolvido com HTML, CSS e JS puros." data-en="© 2026 Eduardo Lima Firmino. Developed with pure HTML, CSS, and JS.">© 2026 Eduardo Lima Firmino. Desenvolvido com HTML, CSS e JS puros.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
