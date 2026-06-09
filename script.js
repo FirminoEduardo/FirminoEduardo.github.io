@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     heroSection.style.cursor = "pointer";
 
     heroSection.addEventListener("click", (e) => {
-      // Impede que o clique no nome ou no botão de idioma acione o scroll
       if (e.target.closest("#langToggle") || e.target.id === "secretName")
         return;
 
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const translatableElements = document.querySelectorAll("[data-pt]");
   let currentLang = "pt";
 
-  // Vetores completos das bandeiras (trocando o SVG inteiro para evitar bugs no DOM)
   const svgBrasil = `
         <svg id="flagIcon" width="48" height="36" viewBox="0 0 16 12" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" style="border: 3px solid #FFF; box-shadow: 4px 4px 0px rgba(0,0,0,0.8); border-radius: 2px; display: block;">
             <rect width="16" height="12" fill="#009B3A" />
@@ -55,12 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (langToggle) {
     langToggle.addEventListener("click", (e) => {
-      e.stopPropagation(); // Trava o evento aqui, não deixa vazar pro mapa
+      e.stopPropagation();
 
-      // Alterna o idioma
       currentLang = currentLang === "pt" ? "en" : "pt";
 
-      // Alterna os textos
       translatableElements.forEach((el) => {
         el.innerText =
           currentLang === "pt"
@@ -68,10 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
             : el.getAttribute("data-en");
       });
 
-      // Substitui o SVG inteiro
       langToggle.innerHTML = currentLang === "pt" ? svgBrasil : svgEUA;
 
-      // Efeito visual de clique
       langToggle.style.transform = "scale(0.9)";
       setTimeout(() => (langToggle.style.transform = "scale(1)"), 150);
     });
@@ -89,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     secretName.style.cursor = "crosshair";
 
     secretName.addEventListener("click", (e) => {
-      e.stopPropagation(); // Impede que clicar no nome role a página
+      e.stopPropagation();
       clickCount++;
 
       clearTimeout(clickTimer);
